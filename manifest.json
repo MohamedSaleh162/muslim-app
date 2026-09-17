@@ -1,0 +1,23 @@
+{
+  "name": "مسلم - رفيقك اليومي",
+  "short_name": "مسلم",
+  "description": "تطبيق إسلامي لقراءة القرآن والأذكار ومواقيت الصلاة",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#096647",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "./Images/Logo-app.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "./Images/Logo-app.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
