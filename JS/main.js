@@ -92,6 +92,8 @@ navLinks.forEach((link) => {
     targetPage.classList.remove("d-none");
     targetPage.classList.add("fade-in");
 
+    window.scrollTo(0, 0);
+
     localStorage.setItem("currentPage", targetId);
     history.pushState({ page: targetId }, "", `#${targetId}`);
 
@@ -137,6 +139,7 @@ categoryCards.forEach((card) => {
     );
 
     drawAzkar(type);
+    window.scrollTo(0, 0);
   });
 });
 
@@ -146,6 +149,7 @@ backToAzkarBtn.addEventListener("click", function () {
 
   localStorage.setItem("currentPage", "azkar-page");
   history.pushState({ page: "azkar-page" }, "", `#azkar-page`);
+  window.scrollTo(0, 0);
 });
 
 // Get azkar data form local json
@@ -540,6 +544,7 @@ async function getSurahs() {
           `#surah-${surahId}`,
         );
         getSurahAyahs(surahId);
+        window.scrollTo(0, 0);
       });
     });
   } catch (err) {
@@ -671,6 +676,7 @@ function drawJuz() {
         `#juz-${juzId}`,
       );
       getJuzAyahs(juzId);
+      window.scrollTo(0, 0);
     });
   });
 }
@@ -733,6 +739,7 @@ if (backToQuranBtn) {
 
     localStorage.setItem("currentPage", "quran-page");
     history.pushState({ page: "quran-page" }, "", `#quran-page`);
+    window.scrollTo(0, 0);
   });
 }
 /* End Quran page */
