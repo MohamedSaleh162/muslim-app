@@ -918,32 +918,24 @@ let deferredPrompt;
 const installBtn = document.getElementById('install-btn');
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // منع المتصفح من إظهار الرسالة التلقائية من تحت
   e.preventDefault();
-  // حفظ الحدث عشان نشغله لما المستخدم يدوس على الزرار
   deferredPrompt = e;
-  // إظهار زرار التثبيت بتاعنا
   installBtn.classList.remove('d-none');
 });
 
 installBtn.addEventListener('click', async () => {
   if (!deferredPrompt) return;
-  // إظهار رسالة التثبيت
   deferredPrompt.prompt();
-  // انتظار رد المستخدم (وافق ولا رفض)
   const { outcome } = await deferredPrompt.userChoice;
   if (outcome === 'accepted') {
     console.log('User accepted the install prompt');
   } else {
     console.log('User dismissed the install prompt');
   }
-  // تفريغ المتغير
   deferredPrompt = null;
-  // إخفاء الزرار بعد ما الرسالة تظهر
   installBtn.classList.add('d-none');
 });
 
-// إخفاء الزرار تماماً لو التطبيق اتثبت بنجاح
 window.addEventListener('appinstalled', () => {
   installBtn.classList.add('d-none');
   deferredPrompt = null;

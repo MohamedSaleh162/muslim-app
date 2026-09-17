@@ -1,4 +1,4 @@
-const CACHE_NAME = "muslim-app-v11";
+const CACHE_NAME = "muslim-app-v12";
 const assets = [
   "./",
   "./index.html",
@@ -13,8 +13,10 @@ const assets = [
   "./Images/Logo-removebg-preview (Edited).png"
 ];
 
-// 1.Storing files during application installation
+// 1. File storage and skip the wait
 self.addEventListener("install", installEvent => {
+  self.skipWaiting();
+  
   installEvent.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log("Files successfully cached.");
@@ -23,7 +25,18 @@ self.addEventListener("install", installEvent => {
   );
 });
 
-// 2. Recovering files from a mobile phone when there is no internet
+// 2. Activate the update and clear any old cache (this is the step you were missing).
+self.addEventListener("activate", activateEvent => {
+  activateEvent.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      );
+    })
+  );
+});
+
+// 3. Retrieving files (with or without an internet connection)
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
