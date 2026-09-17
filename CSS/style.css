@@ -189,6 +189,24 @@ header .container .toggle-menu.active-icon {
   bottom: 0px;
   right: 0;
 }
+header .download {
+  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+header .download i {
+  animation: bouncingY 2s infinite;
+}
+
+@media (max-width: 991px) {
+  header .download {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+  }
+}
 @media (min-width: 768px) {
   header .container .toggle-menu {
     display: none;
@@ -321,16 +339,16 @@ header .container .toggle-menu.active-icon {
   padding-top: 40px;
   padding-bottom: 20px;
 }
-.azkar-section ,
+.azkar-section,
 .hadith-section {
   background-color: #151414;
 }
-.light-theme .azkar-section ,
+.light-theme .azkar-section,
 .light-theme .hadith-section {
   background-color: white;
 }
 .showcase-card {
-  background-color: #1a1a1b; 
+  background-color: #1a1a1b;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   margin-bottom: 100px;
@@ -676,7 +694,7 @@ header .container .toggle-menu.active-icon {
   border: 1px solid rgba(9, 102, 71, 0.3);
 }
 .surah-number span {
-  transform: rotate(-45deg); 
+  transform: rotate(-45deg);
   font-size: 14px;
 }
 .surah-type {
@@ -709,16 +727,16 @@ header .container .toggle-menu.active-icon {
 
 /* Quran Details Page */
 .quran-details-header {
-  position: relative; 
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   border-bottom: 1px solid rgba(39, 191, 138, 0.15);
   min-height: 60px;
 }
 .back-btn {
   position: absolute;
-  right: 0; 
+  right: 0;
   background-color: var(--primary-color);
   color: #fff;
   border-radius: 16px;
@@ -727,7 +745,7 @@ header .container .toggle-menu.active-icon {
   z-index: 10;
 }
 .back-btn:hover {
-  background-color: #1a8a63; 
+  background-color: #1a8a63;
   color: #fff;
 }
 .bouncing-icon {
