@@ -10,12 +10,12 @@
   "lang": "ar",
   "icons": [
     {
-      "src": "./Images/Logo-app.jpg",
+      "src": "./Images/Logo-app.png",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "./Images/Logo-app.jpg",
+      "src": "./Images/Logo-app.png",
       "sizes": "512x512",
       "type": "image/jpeg"
     }

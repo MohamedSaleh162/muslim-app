@@ -1,4 +1,4 @@
-const CACHE_NAME = "muslim-app-v5";
+const CACHE_NAME = "muslim-app-v6";
 const assets = [
   "./",
   "./index.html",
@@ -8,7 +8,7 @@ const assets = [
   "./JS/main.js",
   "./JS/bootstrap.bundle.min.js",
   "./azkar.json",
-  "./Images/Logo-app.jpg",
+  "./Images/Logo-app.png",
   "./Images/Hero.png",
   "./Images/Logo-removebg-preview (Edited).png"
 ];
