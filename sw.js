@@ -1,4 +1,4 @@
-const CACHE_NAME = "muslim-app-v7";
+const CACHE_NAME = "muslim-app-v8";
 const assets = [
   "./",
   "./index.html",
