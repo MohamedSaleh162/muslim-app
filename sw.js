@@ -1,4 +1,4 @@
-const CACHE_NAME = "muslim-app-v14";
+const CACHE_NAME = "muslim-app-v15";
 const assets = [
   "./",
   "./index.html",
@@ -10,41 +10,46 @@ const assets = [
   "./azkar.json",
   "./Images/Logo-app.png",
   "./Images/Hero.png",
-  "./Images/Logo-removebg-preview (Edited).png"
+  "./Images/Logo-removebg-preview (Edited).png",
 ];
 
-self.addEventListener("install", installEvent => {
+self.addEventListener("install", (installEvent) => {
   self.skipWaiting();
   installEvent.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
+    caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(assets);
-    })
+    }),
   );
 });
 
-self.addEventListener("activate", activateEvent => {
+self.addEventListener("activate", (activateEvent) => {
   activateEvent.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key)),
       );
-    })
+    }),
   );
   self.clients.claim();
 });
 
-self.addEventListener("fetch", fetchEvent => {
+self.addEventListener("fetch", (fetchEvent) => {
+  if (!fetchEvent.request.url.startsWith("http")) {
+    return;
+  }
   fetchEvent.respondWith(
     fetch(fetchEvent.request)
-      .then(res => {
+      .then((res) => {
         const resClone = res.clone();
-        caches.open(CACHE_NAME).then(cache => {
+        caches.open(CACHE_NAME).then((cache) => {
           cache.put(fetchEvent.request, resClone);
         });
         return res;
       })
       .catch(() => {
         return caches.match(fetchEvent.request);
-      })
+      }),
   );
 });
