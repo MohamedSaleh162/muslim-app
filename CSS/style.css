@@ -341,7 +341,7 @@ header .download i {
 }
 .azkar-section,
 .hadith-section {
-  background-color: #0d0d0d;
+  background-color: #171717;
 }
 .light-theme .azkar-section,
 .light-theme .hadith-section {
@@ -376,7 +376,7 @@ header .download i {
   border-radius: 50%;
 }
 .feature-grid-card {
-  background-color: #121213ae;
+  background-color: #151515;
   border: 1px solid rgba(108, 103, 103, 0.246);
   border-radius: 16px;
   height: 100%;
